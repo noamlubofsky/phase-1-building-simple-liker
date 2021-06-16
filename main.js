@@ -3,6 +3,25 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+document.addEventListener("DOMContentLoaded", () => {
+
+//const heart = document.getElementsByClassName("like-glyph")
+
+const hearts = document.querySelectorAll("span.like-glyph")
+console.log(hearts)
+// const heart = commentLine.querySelectorAll("span")
+// console.log(heart)
+
+hearts.addEventListener("click", fillHeart) 
+function fillHeart (hearts) {
+  if (hearts === EMPTY_HEART) {
+    hearts.innerText = FULL_HEART
+  }
+  if (hearts === FULL_HEART) {
+    hearts.innerText = EMPTY_HEART
+  }
+}
+})
 
 
 
