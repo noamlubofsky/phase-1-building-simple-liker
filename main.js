@@ -10,17 +10,23 @@ const hearts = document.querySelectorAll("span.like-glyph")
 console.log(hearts)
 
 
-  hearts.forEach(hearts => addEventListener("click", likeCallback)) 
-  let individualHeart = (hearts.target)
+  hearts.forEach(hearts => hearts.addEventListener("click", likeCallback)) 
+  // let individualHeart = (e.target)
 
   function likeCallback(hearts){
     console.log(hearts.target)
     mimicServerCall()
     .then(() => {
-      if (individualHeart.innerText === EMPTY_HEART) {
-        individualHeart.innerText === FULL_HEART
-    }})
-    .catch(() => {})
+      if (hearts.target.innerText === EMPTY_HEART) {
+        hearts.target.innerText = FULL_HEART
+    }
+    else if (hearts.target.innerText ===FULL_HEART) {
+      hearts.target.innerText = EMPTY_HEART
+    }
+  })
+    .catch(() => {
+    
+    })
   }})
 
 
@@ -28,7 +34,7 @@ console.log(hearts)
   //hearts.innerText = FULL_HEART
   // }
   // if (hearts.innerText === FULL_HEART) {
-  //   hearts.innerText = EMPTY_HEART
+  //hearts.innerText = EMPTY_HEART
   // }
 
 //------------------------------------------------------------------------------
