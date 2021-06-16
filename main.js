@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const hearts = document.querySelectorAll("span.like-glyph")
 console.log(hearts)
+const error = document.querySelector("h2")
 
 
   hearts.forEach(hearts => hearts.addEventListener("click", likeCallback)) 
-  // let individualHeart = (e.target)
 
   function likeCallback(hearts){
     console.log(hearts.target)
@@ -24,11 +24,16 @@ console.log(hearts)
       hearts.target.innerText = EMPTY_HEART
     }
   })
-    .catch(() => {
-    
+    .catch((error) => {
+      error.removeClass('hidden')
     })
+
   }})
 
+  
+
+  // const error = document.getElementById("h2")
+  // error.class.remove("hidden")
 
   // if (hearts.innerText === EMPTY_HEART) {
   //hearts.innerText = FULL_HEART
