@@ -5,26 +5,31 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 document.addEventListener("DOMContentLoaded", () => {
 
-//const heart = document.getElementsByClassName("like-glyph")
 
 const hearts = document.querySelectorAll("span.like-glyph")
 console.log(hearts)
-// const heart = commentLine.querySelectorAll("span")
-// console.log(heart)
-
-hearts.addEventListener("click", fillHeart) 
-function fillHeart (hearts) {
-  if (hearts === EMPTY_HEART) {
-    hearts.innerText = FULL_HEART
-  }
-  if (hearts === FULL_HEART) {
-    hearts.innerText = EMPTY_HEART
-  }
-}
-})
 
 
+  hearts.forEach(hearts => addEventListener("click", likeCallback)) 
+  let individualHeart = (hearts.target)
 
+  function likeCallback(hearts){
+    console.log(hearts.target)
+    mimicServerCall()
+    .then(() => {
+      if (individualHeart.innerText === EMPTY_HEART) {
+        individualHeart.innerText === FULL_HEART
+    }})
+    .catch(() => {})
+  }})
+
+
+  // if (hearts.innerText === EMPTY_HEART) {
+  //hearts.innerText = FULL_HEART
+  // }
+  // if (hearts.innerText === FULL_HEART) {
+  //   hearts.innerText = EMPTY_HEART
+  // }
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
