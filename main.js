@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const hearts = document.querySelectorAll("span.like-glyph")
 console.log(hearts)
-const error = document.querySelector("h2")
+const throwMsg = document.getElementById("modal")
+console.log(throwMsg)
 
 
   hearts.forEach(hearts => hearts.addEventListener("click", likeCallback)) 
@@ -24,8 +25,8 @@ const error = document.querySelector("h2")
       hearts.target.innerText = EMPTY_HEART
     }
   })
-    .catch((error) => {
-      error.removeClass('hidden')
+    .catch(function(throwMsg) {
+      (throwMsg).removeClass("hidden")
     })
 
   }})
