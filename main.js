@@ -5,12 +5,8 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 document.addEventListener("DOMContentLoaded", () => {
 
-
 const hearts = document.querySelectorAll("span.like-glyph")
 console.log(hearts)
-const throwMsg = document.getElementById("modal")
-console.log(throwMsg)
-
 
   hearts.forEach(hearts => hearts.addEventListener("click", likeCallback)) 
 
@@ -20,28 +16,28 @@ console.log(throwMsg)
     .then(() => {
       if (hearts.target.innerText === EMPTY_HEART) {
         hearts.target.innerText = FULL_HEART
+        hearts.target.className = ("activated-heart")
     }
     else if (hearts.target.innerText ===FULL_HEART) {
       hearts.target.innerText = EMPTY_HEART
+      hearts.target.className = ("grey-heart")
     }
+    // const erMsg = document.getElementById("modal")
+    //   console.log(erMsg)
+    //   erMsg.className = "hidden"
   })
-    .catch(function(throwMsg) {
-      (throwMsg).removeClass("hidden")
+    .catch(() => {
+      const erMsg = document.getElementById("modal")
+      console.log(erMsg)
+      erMsg.className = "show"
+
+      setTimeout(() => {
+        const erMsg = document.getElementById("modal")
+        console.log(erMsg)
+        erMsg.className = "hidden"}, 3000)}
+        
+    )}
     })
-
-  }})
-
-  
-
-  // const error = document.getElementById("h2")
-  // error.class.remove("hidden")
-
-  // if (hearts.innerText === EMPTY_HEART) {
-  //hearts.innerText = FULL_HEART
-  // }
-  // if (hearts.innerText === FULL_HEART) {
-  //hearts.innerText = EMPTY_HEART
-  // }
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
